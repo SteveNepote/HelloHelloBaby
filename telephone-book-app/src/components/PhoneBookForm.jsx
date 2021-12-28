@@ -1,10 +1,12 @@
 /** @jsxImportSource @emotion/react */
+import { useState } from 'react';
 import { css } from '@emotion/react';
-import React, { useState } from 'react';
-
+import { largeBorders } from '../common/styles/colors';
 
 const styles = {
     main: css`
+    border: 8px solid ${largeBorders};
+    border-radius: 8px;
     `,
 };
 
@@ -27,7 +29,9 @@ function PhoneBookForm(props) {
     };
 
     return (
-        <div>
+        <div
+            css={styles.main}
+        >
             <form className='number-form' onSubmit={handleSubmit}>
                 <input
                     type="test"

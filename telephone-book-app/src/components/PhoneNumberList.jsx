@@ -1,11 +1,14 @@
 /** @jsxImportSource @emotion/react */
 import { css } from '@emotion/react';
-import React, { useState } from 'react'
+import { useState } from 'react';
 import PhoneBookForm from './PhoneBookForm';
 import Numbers from './Number';
+import { largeBorders } from '../common/styles/colors';
 
 const styles = {
     main: css`
+    border: 8px solid ${largeBorders};
+    border-radius: 8px;
     `,
 };
 
@@ -54,9 +57,11 @@ function PhoneNumberList() {
         <div>
             <h1>List of Numbers</h1>
             <PhoneBookForm
+                css={styles.main}
                 onSubmit={addNumber}
             />
             <Numbers
+                css={styles.main}
                 phonenumbers={phonenumbers}
                 completeNumber={completeNumber}
                 removeNumber={removeNumber}

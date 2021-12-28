@@ -1,12 +1,16 @@
 /** @jsxImportSource @emotion/react */
-import { css } from '@emotion/react'; import React from 'react';
-import './App.css';
+import { css } from '@emotion/react';
 import PhoneNumberList from './components/PhoneNumberList';
-import { mainBackground } from './styles/colors';
+import { mainBackground } from './common/styles/colors';
 
 const styles = {
   main: css`
     background: ${mainBackground};
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   `,
 };
 
