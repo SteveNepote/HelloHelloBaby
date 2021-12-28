@@ -1,10 +1,17 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import React, { useState } from 'react';
-import PhoneBookForm from './PhoneBookForm';
+// import PhoneBookForm from './PhoneBookForm';
 
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { TiEdit } from 'react-icons/ti';
 
-function PhoneNumbers({ phonenumbers, completeNumber, removeNumber }) {
+const styles = {
+    main: css`
+    `,
+};
+
+function Numbers({ phonenumbers, completeNumber, removeNumber }) {
     const [edit, setEdit] = useState({
         id: null,
         value: '',
@@ -31,4 +38,4 @@ function PhoneNumbers({ phonenumbers, completeNumber, removeNumber }) {
     ))
 }
 
-export default PhoneNumbers
+export default Numbers

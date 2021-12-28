@@ -1,6 +1,14 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import React, { useState } from 'react'
 import PhoneBookForm from './PhoneBookForm';
-import PhoneNumbers from './PhoneNumbers';
+import Numbers from './Number';
+
+const styles = {
+    main: css`
+    `,
+};
+
 
 function PhoneNumberList() {
     const [phonenumbers, setNumbers] = useState([]);
@@ -48,7 +56,7 @@ function PhoneNumberList() {
             <PhoneBookForm
                 onSubmit={addNumber}
             />
-            <PhoneNumbers
+            <Numbers
                 phonenumbers={phonenumbers}
                 completeNumber={completeNumber}
                 removeNumber={removeNumber}

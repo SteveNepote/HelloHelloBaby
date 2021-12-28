@@ -1,4 +1,12 @@
+/** @jsxImportSource @emotion/react */
+import { css } from '@emotion/react';
 import React, { useState } from 'react';
+
+
+const styles = {
+    main: css`
+    `,
+};
 
 function PhoneBookForm(props) {
     const [input, setList] = useState('');
