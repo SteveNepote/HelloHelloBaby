@@ -6,12 +6,26 @@ import Numbers from './Number';
 import { largeBorders } from '../common/styles/colors';
 
 const styles = {
+    container: css`
+    border: 8px solid ${largeBorders};
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+
+    `,
     main: css`
     border: 8px solid ${largeBorders};
     border-radius: 8px;
+    display: flex;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    width: 50%;
     `,
 };
-
 
 function PhoneNumberList() {
     const [phonenumbers, setNumbers] = useState([]);
@@ -54,7 +68,9 @@ function PhoneNumberList() {
     };
 
     return (
-        <div>
+        <div
+            css={styles.container}
+        >
             <h1>List of Numbers</h1>
             <PhoneBookForm
                 css={styles.main}

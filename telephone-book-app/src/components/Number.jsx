@@ -1,7 +1,7 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from 'react';
 import { css } from '@emotion/react';
-// import PhoneBookForm from './PhoneBookForm';
+import PhoneBookForm from './PhoneBookForm';
 
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { TiEdit } from 'react-icons/ti';
@@ -13,21 +13,46 @@ const styles = {
     border-radius: 8px;
     margin: 8px;
     padding: 12px;
+    display: flex;
+    justify-content: center;
+    width: 50%;
+    `,
+    form: css`
+    display: flex;
+    flex-direction: column;
     `,
 };
 
-function Numbers({ phonenumbers, completeNumber, removeNumber }) {
+function Numbers({ phonenumbers, completeNumber, removeNumber, updateNumber }) {
     const [edit, setEdit] = useState({
         id: null,
         value: '',
     });
 
+    const submitUpdate = value => {
+        updateNumber(edit.id, value)
+        setEdit({
+            id: null,
+            value: '',
+        })
+    }
+
+    if (edit.id) {
+        return <PhoneBookForm
+            edit={edit}
+            onSubmit={submitUpdate}
+            css={styles.container}
+        />
+    };
+
     return phonenumbers.map((thenumber, index) => (
         <div
             css={styles.container}
         >
-            <div className={thenumber.isComplete ? 'number-row complete' : 'number-row'}
+            <div
+                className={thenumber.isComplete ? 'number-row complete' : 'number-row'}
                 key={index}
+                css={styles.form}
             >
                 <div key={thenumber.id} onClick={() => completeNumber(thenumber.id)}>
                     {thenumber.text}
@@ -39,7 +64,7 @@ function Numbers({ phonenumbers, completeNumber, removeNumber }) {
                     />
                     <TiEdit
                         onClick={() => setEdit({ id: thenumber.id, value: thenumber.text })}
-                        className='eit-icon'
+                        className='edit-icon'
                     />
                 </div>
             </div>
