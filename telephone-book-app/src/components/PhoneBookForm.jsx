@@ -5,7 +5,8 @@ import { largeBorders } from '../common/styles/colors';
 
 const styles = {
     main: css`
-    border: 8px solid ${largeBorders};
+    // border: 8px solid ${largeBorders};
+    border: 3px solid blue;
     border-radius: 8px;
     width: 400px;
     height: 200px;
@@ -15,6 +16,7 @@ const styles = {
     justify-content: center;
     `,
     input: css`
+    border: 3px solid gold;
     text-align: center;
     `,
 };

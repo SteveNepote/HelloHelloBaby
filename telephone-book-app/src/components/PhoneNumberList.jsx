@@ -3,28 +3,37 @@ import { css } from '@emotion/react';
 import { useState } from 'react';
 import PhoneBookForm from './PhoneBookForm';
 import Numbers from './Number';
-import { largeBorders } from '../common/styles/colors';
+import { largeBorders, mainBackground } from '../common/styles/colors';
+import '../App.css';
 
 const styles = {
     container: css`
     border: 8px solid ${largeBorders};
+    background-image: url("./common/styles/img/large_cord_png.png");
+    margin: 10px;
+    padding: 12px;
+    background-color: ${mainBackground};
     border-radius: 8px;
     display: flex;
     flex-direction: column;
+    justify-content: start;
+    width: 550px;
     text-align: center;
-    justify-content: center;
-
+    `,
+    itemsContainer: css`
+    border: 3px solid purple;
+    padding: 12px;
     `,
     main: css`
-    border: 8px solid ${largeBorders};
+    // none of these do shit
+    // border: 8px solid ${largeBorders};
+    border: 3px solid red;
     border-radius: 8px;
-    display: flex;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    justify-content: center;
-    width: 50%;
+
+    justify-content: center !important;
+    padding: 12px;
     `,
+
 };
 
 function PhoneNumberList() {
@@ -69,21 +78,26 @@ function PhoneNumberList() {
 
     return (
         <div
+            className='number-list'
             css={styles.container}
         >
-            <h1>List of Numbers</h1>
-            <PhoneBookForm
-                css={styles.main}
-                onSubmit={addNumber}
-            />
-            <Numbers
-                css={styles.main}
-                phonenumbers={phonenumbers}
-                completeNumber={completeNumber}
-                removeNumber={removeNumber}
-                updateNumber={updateNumber}
-            />
-
+            <h2>List of Numbers</h2>
+            <div
+                className='number-list'
+                css={styles.itemsContainer}
+            >
+                <PhoneBookForm
+                    css={styles.main}
+                    onSubmit={addNumber}
+                />
+                <Numbers
+                    css={styles.main}
+                    phonenumbers={phonenumbers}
+                    completeNumber={completeNumber}
+                    removeNumber={removeNumber}
+                    updateNumber={updateNumber}
+                />
+            </div>
         </div>
     )
 }

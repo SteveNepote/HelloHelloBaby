@@ -9,7 +9,8 @@ import { largeBorders } from '../common/styles/colors';
 
 const styles = {
     container: css`
-    border: 8px solid ${largeBorders};
+    // border: 8px solid ${largeBorders};
+    border: 3px solid pink;
     border-radius: 8px;
     margin: 8px;
     padding: 12px;
@@ -18,8 +19,18 @@ const styles = {
     width: 50%;
     `,
     form: css`
+    border: 3px solid yellow;
+    border-radius: 8px;
     display: flex;
     flex-direction: column;
+    padding: 12px;
+    `,
+    number: css`
+    border: 3px solid white;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    padding: 12px;
     `,
 };
 
@@ -54,7 +65,8 @@ function Numbers({ phonenumbers, completeNumber, removeNumber, updateNumber }) {
                 key={index}
                 css={styles.form}
             >
-                <div key={thenumber.id} onClick={() => completeNumber(thenumber.id)}>
+                <div key={thenumber.id} onClick={() => completeNumber(thenumber.id)}
+                    css={styles.number}>
                     {thenumber.text}
                 </div>
                 <div className="icons">
