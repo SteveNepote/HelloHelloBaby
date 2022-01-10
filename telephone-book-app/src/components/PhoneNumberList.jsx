@@ -3,13 +3,12 @@ import { css } from '@emotion/react';
 import { useState } from 'react';
 import PhoneBookForm from './PhoneBookForm';
 import Numbers from './Number';
-import { largeBorders, mainBackground } from '../common/styles/colors';
+import { largeBorders, mainBackground, purpleMonkey } from '../common/styles/colors';
 import '../App.css';
 
 const styles = {
     container: css`
     border: 8px solid ${largeBorders};
-    background-image: url("./common/styles/img/large_cord_png.png");
     margin: 10px;
     padding: 12px;
     background-color: ${mainBackground};
@@ -21,20 +20,17 @@ const styles = {
     text-align: center;
     `,
     itemsContainer: css`
-    border: 3px solid purple;
+    border: 8px solid ${purpleMonkey};
+    border-radius: 8px;
     padding: 12px;
     `,
-    main: css`
-    // none of these do shit
-    // border: 8px solid ${largeBorders};
-    border: 3px solid red;
-    border-radius: 8px;
+    listMain: css`
 
-    justify-content: center !important;
-    padding: 12px;
     `,
 
 };
+
+
 
 function PhoneNumberList() {
     const [phonenumbers, setNumbers] = useState([]);
@@ -78,7 +74,7 @@ function PhoneNumberList() {
 
     return (
         <div
-            className='number-list'
+            className='number-list-main'
             css={styles.container}
         >
             <h2>List of Numbers</h2>
@@ -87,11 +83,11 @@ function PhoneNumberList() {
                 css={styles.itemsContainer}
             >
                 <PhoneBookForm
-                    css={styles.main}
+                    css={styles.formMain}
                     onSubmit={addNumber}
                 />
                 <Numbers
-                    css={styles.main}
+                    css={styles.listMain}
                     phonenumbers={phonenumbers}
                     completeNumber={completeNumber}
                     removeNumber={removeNumber}

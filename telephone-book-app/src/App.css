@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com");
+
 @import url("https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Bangers&family=Julius+Sans+One&family=Reenie+Beanie&family=Rock+Salt&family=Shadows+Into+Light&family=Vujahday+Script&display=swap");
 
    
@@ -20,10 +20,17 @@
     padding: 25px;
     display: flex;
     justify-content: center;
-    /* background-image: url("./common/styles/img/large_cord_png.PNG"); */
+  }
+  h1 {
+      font-size: 100px;
+      margin: 35px;
+  }
+  
+  h2 {
+      font-size: 60px;
+      margin: 25px;
   }
   .telephone-app {
-
     display: flex;
     flex-direction: column;
     justify-content: start;
@@ -45,4 +52,21 @@
       justify-content: center;
       text-align: center;
       align-items: center;
+      text-shadow: 2px 2px #FF3399;
+  }
+
+  .number-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .add-button, .add-button-edit {
+      padding: 12px;
+      margin: 6px;
+      font-size: 35px;
+      border-radius: 8px;
+      background-color: blueviolet;
+
   }

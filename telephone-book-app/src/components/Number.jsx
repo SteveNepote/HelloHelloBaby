@@ -3,34 +3,52 @@ import { useState } from 'react';
 import { css } from '@emotion/react';
 import PhoneBookForm from './PhoneBookForm';
 
-import { BsFillTelephoneFill } from 'react-icons/bs';
+import { BsFillTelephoneXFill } from 'react-icons/bs';
 import { TiEdit } from 'react-icons/ti';
-import { largeBorders } from '../common/styles/colors';
+import { innerBorders, listItems, blackGraded, purpleMonkey } from '../common/styles/colors';
 
 const styles = {
     container: css`
-    // border: 8px solid ${largeBorders};
-    border: 3px solid pink;
+    // border: 8px solid ${innerBorders};
     border-radius: 8px;
-    margin: 8px;
-    padding: 12px;
+    margin: 12px;
+    padding: 20px;
     display: flex;
     justify-content: center;
-    width: 50%;
+    width: 80%;
+    background-color: ${blackGraded};
+    color: ${listItems};
     `,
     form: css`
-    border: 3px solid yellow;
+    width: 90%;
+    border: 1px dotted yellow;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     padding: 12px;
     `,
     number: css`
-    border: 3px solid white;
+    border: 1px solid ${innerBorders};
+    background-color: ${blackGraded};
+    font-size: 35px;
     border-radius: 8px;
     display: flex;
     flex-direction: column;
     padding: 12px;
+    `,
+    icons: css`
+    margin: 10px;
+    border-radius: 8px;
+    border: 1px solid ${innerBorders};
+    background-color: ${purpleMonkey};
+    `,
+    removeIcon: css`
+    font-size: 35px;
+    margin: 12px 30px;
+    `,
+    editIcon: css`
+    font-size: 35px;
+    margin: 12px 30px;
     `,
 };
 
@@ -69,15 +87,23 @@ function Numbers({ phonenumbers, completeNumber, removeNumber, updateNumber }) {
                     css={styles.number}>
                     {thenumber.text}
                 </div>
-                <div className="icons">
-                    <BsFillTelephoneFill
-                        onClick={() => removeNumber(thenumber.id)}
-                        className='delete-icon'
-                    />
+                <div
+                    className="icons"
+                    css={styles.icons}
+                >
                     <TiEdit
+                        css={styles.editIcon}
                         onClick={() => setEdit({ id: thenumber.id, value: thenumber.text })}
                         className='edit-icon'
                     />
+
+                    <BsFillTelephoneXFill
+                        tooltip="Remove"
+                        css={styles.removeIcon}
+                        onClick={() => removeNumber(thenumber.id)}
+                        className='delete-icon'
+                    />
+
                 </div>
             </div>
         </div>
