@@ -122,8 +122,7 @@ function PhoneBookForm(props) {
                                 ref={entryFocus}
                                 css={styles.input}
                             />
-
-                            <button css={styles.addButton} className='add-button'>Add Number</button>
+                            <button css={styles.addButton} className='add-button'>Add Contact</button>
                         </>
                     )}
 

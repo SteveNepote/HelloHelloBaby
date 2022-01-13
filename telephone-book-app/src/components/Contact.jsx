@@ -3,8 +3,6 @@ import { useState } from 'react';
 import { css } from '@emotion/react';
 import PhoneBookForm from './PhoneBookForm';
 
-import { BsFillTelephoneXFill } from 'react-icons/bs';
-import { TiEdit } from 'react-icons/ti';
 import { innerBorders, listItems, blackGraded, purpleMonkey } from '../common/styles/colors';
 
 const styles = {
@@ -52,14 +50,14 @@ const styles = {
     `,
 };
 
-function Numbers({ phonenumbers, completeNumber, removeContact, updateNumber }) {
+function Contact({ contact, updateContact }) {
     const [edit, setEdit] = useState({
         id: null,
         value: '',
     });
 
     const submitUpdate = value => {
-        updateNumber(edit.id, value)
+        updateContact(edit.id, value)
         setEdit({
             id: null,
             value: '',
@@ -74,40 +72,21 @@ function Numbers({ phonenumbers, completeNumber, removeContact, updateNumber }) 
         />
     };
 
-    return phonenumbers.map((thenumber, index) => (
+    return contact.map((thecontact, index) => (
         <div
             css={styles.container}
         >
             <div
-                className={thenumber.isComplete ? 'number-row complete' : 'number-row'}
                 key={index}
                 css={styles.form}
             >
-                <div key={thenumber.id} onClick={() => completeNumber(thenumber.id)}
+                <div key={thecontact.id}
                     css={styles.number}>
-                    {thenumber.text}
-                </div>
-                <div
-                    className="icons"
-                    css={styles.icons}
-                >
-                    <TiEdit
-                        css={styles.editIcon}
-                        onClick={() => setEdit({ id: thenumber.id, value: thenumber.text })}
-                        className='edit-icon'
-                    />
-
-                    <BsFillTelephoneXFill
-                        tooltip="Remove"
-                        css={styles.removeIcon}
-                        onClick={() => removeContact(thenumber.id)}
-                        className='delete-icon'
-                    />
-
+                    {thecontact.text}
                 </div>
             </div>
         </div>
     ))
 }
 
-export default Numbers
+export default Contact;

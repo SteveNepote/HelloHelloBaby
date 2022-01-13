@@ -3,6 +3,7 @@ import { css } from '@emotion/react';
 import { useState } from 'react';
 import PhoneBookForm from './PhoneBookForm';
 import Numbers from './Number';
+// import Contact from './Contact';
 import { largeBorders, mainBackground, purpleMonkey } from '../common/styles/colors';
 import '../App.css';
 
@@ -34,6 +35,7 @@ const styles = {
 
 function PhoneNumberList() {
     const [phonenumbers, setNumbers] = useState([]);
+    // const [contact, setContact] = useState([]);
 
     const addNumber = thenumber => {
         if (!thenumber.text || /^\s*$/.test(thenumber.text)) {
@@ -45,6 +47,15 @@ function PhoneNumberList() {
         setNumbers(newNumber);
     };
 
+    // const addContact = thecontact => {
+    //     if (!thecontact.text || /^\s*$/.test(thecontact.text)) {
+    //         return;
+    //     }
+
+    //     const newContact = [thecontact, ...contact];
+
+    //     setContact(newContact);
+    // };
 
     const updateNumber = (numberId, newValue) => {
         if (!newValue.text || /^\s*$/.test(newValue.text)) {
@@ -55,22 +66,12 @@ function PhoneNumberList() {
     };
 
 
-    const removeNumber = id => {
+    const removeContact = id => {
         const removeArr = [...phonenumbers].filter(thenumber => thenumber.id !== id)
 
         setNumbers(removeArr);
     };
 
-
-    const completeNumber = id => {
-        let updatedNumbers = phonenumbers.map(thenumber => {
-            if (thenumber.id === id) {
-                thenumber.isComplete = !thenumber.isComplete
-            }
-            return thenumber
-        });
-        setNumbers(updatedNumbers);
-    };
 
     return (
         <div
@@ -89,10 +90,15 @@ function PhoneNumberList() {
                 <Numbers
                     css={styles.listMain}
                     phonenumbers={phonenumbers}
-                    completeNumber={completeNumber}
-                    removeNumber={removeNumber}
+                    removeContact={removeContact}
                     updateNumber={updateNumber}
                 />
+                {/* <Contact
+                    css={styles.listMain}
+                    contact={contact}
+                    removeContact={removeContact}
+                    updateNumber={updateNumber}
+                /> */}
             </div>
         </div>
     )
